@@ -1,0 +1,25 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom animations */
+@keyframes neon-glow {
+    /* Your animation code */
+}
+
+@keyframes rainbow-border {
+    /* Your animation code */
+}
+
+/* Utility classes */
+.glass-effect {
+    /* Your glass effect code */
+}
+
+.retro-shadow {
+    /* Your retro shadow code */
+}
+
+.funky-transform {
+    /* Your funky transform code */
+}

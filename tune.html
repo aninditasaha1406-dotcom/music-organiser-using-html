@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tune Deck</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+/* Tailwind custom config */
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        cyan: '#00FFFF',
+        hotPink: '#FF1744',
+        electricGreen: '#00FF41',
+        deepPurple: '#1A0033',
+        electricPink: '#FF0080'
+      },
+      fontFamily: {
+        orbitron: ['Orbitron', 'sans-serif'],
+        spaceGrotesk: ['Space Grotesk', 'sans-serif']
+      }
+    }
+  }
+};
+
+/* Neon glow animation */
+@keyframes neon-glow {
+  0%, 100% { text-shadow: 0 0 5px #fff, 0 0 15px #ff0080, 0 0 25px #ff0080, 0 0 35px #ff0080; }
+  50% { text-shadow: 0 0 10px #fff, 0 0 25px #ff0080, 0 0 35px #ff0080, 0 0 50px #ff0080; }
+}
+
+/* Rainbow border animation */
+@keyframes rainbow-border {
+  0% { border-color: red; }
+  16% { border-color: orange; }
+  33% { border-color: yellow; }
+  50% { border-color: green; }
+  66% { border-color: blue; }
+  83% { border-color: indigo; }
+  100% { border-color: violet; }
+}
+
+/* Floating particle animation */
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); opacity: 0.8; }
+  50% { transform: translateY(-200px) translateX(50px); opacity: 0.5; }
+  100% { transform: translateY(-400px) translateX(-50px); opacity: 0; }
+}
+
+/* Custom Classes */
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: linear-gradient(135deg, #1A0033, #000000);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.neon-text {
+  color: #FF0080;
+  font-family: 'Orbitron', sans-serif;
+  animation: neon-glow 1.5s infinite alternate;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.retro-shadow {
+  text-shadow: 2px 2px #FF0080, 4px 4px #00FF41;
+}
+
+.funky-transform {
+  transform: rotate(-2deg) scale(1.05);
+}
+
+.rainbow-border {
+  border: 3px solid red;
+  animation: rainbow-border 4s linear infinite;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: cyan;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: float 5s linear infinite;
+}
+
+/* Track Card */
+.track-card {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.track-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00FFFF, 0 0 40px #FF0080;
+}
+
+.play-button {
+  background: #FF0080;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px #FF0080;
+  transition: all 0.3s ease;
+}
+
+.play-button:hover {
+  box-shadow: 0 0 20px #FF0080, 0 0 40px #00FFFF;
+  transform: scale(1.2);
+}
+</style>
+</head>
+<body>
+
+<!-- Floating particles -->
+<script>
+for (let i = 0; i < 50; i++) {
+  const particle = document.createElement('div');
+  particle.classList.add('particle');
+  particle.style.left = Math.random() * window.innerWidth + 'px';
+  particle.style.top = Math.random() * window.innerHeight + 'px';
+  particle.style.animationDuration = 3 + Math.random() * 5 + 's';
+  document.body.appendChild(particle);
+}
+</script>
+
+<!-- Main Container -->
+<div class="flex flex-col items-center p-8 space-y-8 w-full">
+  <h1 class="neon-text text-5xl retro-shadow">Tune Deck</h1>
+  <p class="funky-transform text-electricPink text-lg">Your cyberpunk music playlist organizer</p>
+
+  <!-- Music Deck -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
+
+    <!-- Track Card 1 -->
+    <div class="track-card flex flex-col items-center p-5 rainbow-border">
+      <h2 class="text-xl font-orbitron mb-2">Neon Dreams</h2>
+      <p class="text-cyan mb-4">Artist: Cyberwave</p>
+      <button class="play-button" data-audio="audio1">&#9658;</button>
+      <audio id="audio1" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+    </div>
+
+    <!-- Track Card 2 -->
+    <div class="track-card flex flex-col items-center p-5 rainbow-border">
+      <h2 class="text-xl font-orbitron mb-2">Electric Pulse</h2>
+      <p class="text-cyan mb-4">Artist: Synthora</p>
+      <button class="play-button" data-audio="audio2">&#9658;</button>
+      <audio id="audio2" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
+    </div>
+
+    <!-- Track Card 3 -->
+    <div class="track-card flex flex-col items-center p-5 rainbow-border">
+      <h2 class="text-xl font-orbitron mb-2">Cyber Night</h2>
+      <p class="text-cyan mb-4">Artist: Neon Lights</p>
+      <button class="play-button" data-audio="audio3">&#9658;</button>
+      <audio id="audio3" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// Play/Pause Logic
+let currentAudio = null;
+
+document.querySelectorAll('.play-button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const audioId = btn.getAttribute('data-audio');
+    const audio = document.getElementById(audioId);
+
+    if (currentAudio && currentAudio !== audio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      document.querySelector(`[data-audio="${currentAudio.id}"]`).innerHTML = '&#9658;';
+    }
+
+    if (audio.paused) {
+      audio.play();
+      btn.innerHTML = '&#10074;&#10074;'; // Pause icon
+      currentAudio = audio;
+    } else {
+      audio.pause();
+      btn.innerHTML = '&#9658;'; // Play icon
+    }
+  });
+});
+</script>
+
+</body>
+</html>
