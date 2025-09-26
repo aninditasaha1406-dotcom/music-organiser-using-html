@@ -70,11 +70,3 @@ Acknowledgments
 •	Built with love using React, Tailwind CSS, and Vite.
 
 
-
-
-## Getting Started
-
-1. **Install Dependencies**:
-   ```bash
-
-   npm install
