@@ -31,6 +31,7 @@ Building for Production
 To create an optimized production build, run:
 npm run build
 The build output will be located in the dist directory.
+
 Project Structure
 •	index.html: Main HTML file.
 •	src/styles/: Directory for CSS files.
@@ -47,10 +48,13 @@ Project Structure
 •	vite.config.js: Configures Vite (if using Vite as a build tool).
 •	.gitignore: Specifies files and directories to ignore in Git.
 •	README.md: Provides an overview and instructions for your project.
+
 Technologies Used
 •	Frontend: HTML, CSS, JavaScript, React (optional)
 •	Styling: Tailwind CSS, Custom CSS animations
 •	Build Tool: Vite
+
+
 Custom Animations and Effects
 CSS Animations
 •	Neon Glow Animation: Text glows with pulsing neon effects.
@@ -61,12 +65,15 @@ CSS Animations
 •	Retro Shadow: Multi-layered colored shadows for depth.
 •	Funky Transform: 3D perspective transforms on hover.
 •	Gradient Backgrounds: Animated color-shifting gradients.
+
 Fonts
 •	Orbitron: Used for headings.
 •	Space Grotesk: Used for paragraphs.
 
+
 Acknowledgments
 •	Inspired by cyberpunk aesthetics and modern web design trends.
 •	Built with love using React, Tailwind CSS, and Vite.
+
 
 
